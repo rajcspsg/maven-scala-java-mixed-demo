@@ -33,6 +33,7 @@
                         <goals>
                             <goal>add-source</goal>
                             <goal>compile</goal>
+                            <goal>testCompile</goal>
                         </goals>
                         <configuration>
                             <sourceDir>scala</sourceDir>
@@ -50,6 +51,18 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M3</version>
+                <configuration>
+                    <includes>
+                        <include>**/*Suite.class</include>
+                        <include>**/*Test.class</include>
+                        <include>**/*Test</include>
+                        <include>**/*Test*.class</include>
+                        <include>**/*Tests.class</include>
+                        <include>**/*Spec.class</include>
+                        <include>**/*Spec</include>
+                        <include>**/*Specs.class</include>
+                    </includes>
+                </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -70,7 +83,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.8.2</version>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -79,5 +92,12 @@
             <version>3.2.3</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.scalatestplus</groupId>
+            <artifactId>scalatestplus-junit_2.13</artifactId>
+            <version>1.0.0-M2</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 </project>
